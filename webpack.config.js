@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const env = process.env.NODE_ENV || 'development';
 const isDev = env === 'development';
@@ -8,16 +8,16 @@ const isProd = env === 'production';
 
 const extractScss = new ExtractTextPlugin({
   filename: 'index.css',
-  disable: isDev
+  disable: isDev,
 });
 
 module.exports = {
   entry: {
-    bundle: './src/js/index.js'
+    bundle: './src/js/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -28,30 +28,34 @@ module.exports = {
         exclude: /node_modules/,
         options: {
           fix: true,
-        }, 
+        },
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
       },
       {
         test: /\.js$/,
         exclude: /node-modules/,
-        use: "babel-loader"
+        use: 'babel-loader',
       },
       {
         test: /(\.css|\.scss)$/,
         exclude: /node-modules/,
         use: extractScss.extract({
           use: [
-            {loader: 'css-loader'},
-            {loader: 'sass-loader'}
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' },
           ],
-          fallback: 'style-loader'
-        })
-      }
-    ]
+          fallback: 'style-loader',
+        }),
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
     }),
-    extractScss
-  ]
-}
+    extractScss,
+  ],
+};
