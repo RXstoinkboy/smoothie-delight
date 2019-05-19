@@ -1,0 +1,28 @@
+.header{
+    font-family: var(--heroFont);
+    font-size: 7rem;
+    color: var(--mainTextColor);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-4deg);
+    z-index: 10;
+    filter: drop-shadow(2px 3px 0 black);
+}
+
+.attribute{
+    font-family: var(--titleFont);
+    position: absolute;
+    color: var(--secondaryTextColor);
+    top: 50%;
+    left: 50%;
+    transform: translate(-500%, -50%);
+    font-size: 2rem;
+    width: 100px;
+    line-height: 2rem;
+    filter: drop-shadow(1px 2px 0 rgb(65, 65, 65));
+}
+
+.attribute__description{
+    font-family: var(--mainText);
+}

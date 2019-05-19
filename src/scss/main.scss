@@ -1,1 +1,13 @@
-@import './layout/global'
+// fonts
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto:100|Staatliches&display=swap');
+
+// base styles
+@import './layout/base';
+
+// variables
+@import './variables/globals';
+
+// partials
+@import './partials/image';
+@import './partials/texts';
+@import './partials/form';
