@@ -32,12 +32,25 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'raw-loader',
+        use: {
+          loader: 'html-loader',
+          options: {
+            minimize: isProd,
+            removeComments: isProd,
+            collapseWhitespace: isProd,
+          },
+        },
       },
       {
         test: /\.js$/,
         exclude: /node-modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader',
+        ],
       },
       {
         test: /(\.css|\.scss)$/,
