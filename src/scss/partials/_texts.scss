@@ -1,26 +1,148 @@
 .header{
     font-family: var(--heroFont);
-    font-size: 7rem;
+    font-size: 6rem;
     color: var(--mainTextColor);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-4deg);
     z-index: 10;
-    filter: drop-shadow(2px 3px 0 black);
+    text-shadow: 2px 3px 0 black;
+
+    @media screen and (max-width: 850px) and (orientation: landscape) {
+        font-size: 4rem;
+        left: auto;
+        right: 0;
+        max-width: 50%;
+        transform: translate(0, -50%) rotate(-4deg);
+    }
+    @media screen and (max-width: 600px) {
+        font-size: 4rem;
+        top: 20%;
+    }
+}
+
+.attributes{
+    height: 60vw;
+    width: 60vw;
+    z-index: 5;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    @media screen and (max-width: 850px) {
+        height: 90vw;
+        width: 90vw;
+    }
+
+    @media screen and (max-width: 850px) and (orientation: landscape) {
+        height: 85vh;
+        width: 85vh;
+        left: 3%;
+        transform: translate(0, -50%);
+    }
+    @media screen and (max-width: 600px) and (orientation: portrait) {
+        top: 65%;
+    }
 }
 
 .attribute{
-    font-family: var(--titleFont);
+    height: 100%;
+    width: 100%;
     position: absolute;
-    color: var(--secondaryTextColor);
-    top: 50%;
-    left: 50%;
-    transform: translate(-500%, -50%);
-    font-size: 2rem;
+
+    .attribute__text{
+        font-family: var(--titleFont);
+        position: absolute;
+        color: var(--secondaryTextColor);
+        top: 50%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        width: 100px;
+        line-height: 2rem;
+        text-shadow: 2px 3px 0 black;
+        vertical-align: center;
+        transition: opacity .3s ease;
+
+        @media screen and (max-width: 360px) and (orientation: portrait) {
+            font-size: 1.3rem;
+            line-height: 1.4rem;
+        }
+    }
+}
+
+#health{
+    transform: rotate(var(--rot));
+}
+
+#health > .attribute__text{
+    transform: rotate(calc(-1*var(--rot)));
+}
+#every{
+    transform: rotate(calc(2*var(--rot)));
+}
+
+#every > .attribute__text{
+    transform: rotate(calc(-2*var(--rot)));
+}
+#lose{
+    transform: rotate(calc(3*var(--rot)));
+}
+
+#lose > .attribute__text{
+    transform: rotate(calc(-3*var(--rot)));
+}
+#add{
+    transform: rotate(calc(4*var(--rot)));
+}
+
+#add > .attribute__text{
+    transform: rotate(calc(-4*var(--rot)));
+}
+#stay{
+    transform: rotate(calc(5*var(--rot)));
+    z-index: 7;
+}
+
+#stay > .attribute__text{
+    transform: rotate(calc(-5*var(--rot)));
+}
+.attribute__text--one{
+    animation: fade 2s infinite alternate-reverse;
+    animation-delay: 2s;
+}
+
+.attribute__text--two{
+    animation: fade 2s infinite alternate-reverse;
+}
+
+
+.attribute__text--button{
+    height: 100px;
     width: 100px;
-    line-height: 2rem;
-    filter: drop-shadow(1px 2px 0 rgb(65, 65, 65));
+    border: none;
+    background: var(--secBg);
+    border-radius: 50%;
+    position: relative;
+    z-index: 500;
+    box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.432);
+    cursor: pointer;
+    
+    &::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        z-index: -1;
+        width: 10px;
+        height: 10px;
+        background: var(--secBg);
+        transform: translate(-50%, -50%);
+        animation: pulse 1s infinite;
+    }
 }
 
 .attribute__description{

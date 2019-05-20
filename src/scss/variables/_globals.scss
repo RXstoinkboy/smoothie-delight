@@ -1,9 +1,12 @@
 :root{
     --mainBg: hsl(318, 67%, 88%);
-    --mainTextColor: hsl(214, 73%, 67%);
-    --secondaryTextColor: hsl(214, 91%, 79%);
+    --secBg: hsl(318, 43%, 67%);
+    --mainTextColor: hsl(214, 58%, 55%);
+    --secondaryTextColor: hsl(214, 93%, 83%);
 
     --heroFont: 'Lobster', cursive;
     --titleFont: 'Staatliches', cursive;
     --mainFont: 'Roboto', sans-serif;
+
+    --rot: 72deg; // rotation
 }

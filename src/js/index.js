@@ -1,9 +1,16 @@
-import msg from './test';
 import '../scss/main.scss';
 import '../../index.html';
 
-console.log(msg);
-console.log('Yo world');
+const submitBtn = document.querySelector('.attribute__text--button');
+const closeBtn = document.querySelector('.close-button');
+const mailBtn = document.querySelector('.mail__submit');
+const form = document.querySelector('form');
 
-const hello = 'this is ugly';
-console.log(hello);
+const toggleForm = (e) => {
+  e.preventDefault();
+  form.classList.toggle('mail--active');
+};
+
+submitBtn.addEventListener('click', toggleForm);
+closeBtn.addEventListener('click', toggleForm);
+mailBtn.addEventListener('click', toggleForm);

@@ -1,5 +1,8 @@
-html {
-  box-sizing: border-box; }
+@import url(https://fonts.googleapis.com/css?family=Lobster|Roboto:100|Staatliches&display=swap);html {
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-align: center; }
 
 *, *::before, *::after {
   box-sizing: inherit;
@@ -12,4 +15,241 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  overflow: hidden; }
+  overflow: hidden;
+  background: var(--mainBg); }
+
+:root {
+  --mainBg: hsl(318, 67%, 88%);
+  --secBg: hsl(318, 43%, 67%);
+  --mainTextColor: hsl(214, 58%, 55%);
+  --secondaryTextColor: hsl(214, 93%, 83%);
+  --heroFont: 'Lobster', cursive;
+  --titleFont: 'Staatliches', cursive;
+  --mainFont: 'Roboto', sans-serif;
+  --rot: 72deg; }
+
+@keyframes pulse {
+  from {
+    opacity: .9;
+    height: 0;
+    width: 0; }
+  to {
+    opacity: 0;
+    height: 180px;
+    width: 180px; } }
+
+@keyframes fade {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+.header__image {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70%;
+  max-width: 100%; }
+
+.header {
+  font-family: var(--heroFont);
+  font-size: 6rem;
+  color: var(--mainTextColor);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  z-index: 10;
+  text-shadow: 2px 3px 0 black; }
+  @media screen and (max-width: 850px) and (orientation: landscape) {
+    .header {
+      font-size: 4rem;
+      left: auto;
+      right: 0;
+      max-width: 50%;
+      transform: translate(0, -50%) rotate(-4deg); } }
+  @media screen and (max-width: 600px) {
+    .header {
+      font-size: 4rem;
+      top: 20%; } }
+
+.attributes {
+  height: 60vw;
+  width: 60vw;
+  z-index: 5;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  @media screen and (max-width: 850px) {
+    .attributes {
+      height: 90vw;
+      width: 90vw; } }
+  @media screen and (max-width: 850px) and (orientation: landscape) {
+    .attributes {
+      height: 85vh;
+      width: 85vh;
+      left: 3%;
+      transform: translate(0, -50%); } }
+  @media screen and (max-width: 600px) and (orientation: portrait) {
+    .attributes {
+      top: 65%; } }
+
+.attribute {
+  height: 100%;
+  width: 100%;
+  position: absolute; }
+  .attribute .attribute__text {
+    font-family: var(--titleFont);
+    position: absolute;
+    color: var(--secondaryTextColor);
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    width: 100px;
+    line-height: 2rem;
+    text-shadow: 2px 3px 0 black;
+    vertical-align: center;
+    transition: opacity .3s ease; }
+    @media screen and (max-width: 360px) and (orientation: portrait) {
+      .attribute .attribute__text {
+        font-size: 1.3rem;
+        line-height: 1.4rem; } }
+
+#health {
+  transform: rotate(var(--rot)); }
+
+#health > .attribute__text {
+  transform: rotate(calc(-1*var(--rot))); }
+
+#every {
+  transform: rotate(calc(2*var(--rot))); }
+
+#every > .attribute__text {
+  transform: rotate(calc(-2*var(--rot))); }
+
+#lose {
+  transform: rotate(calc(3*var(--rot))); }
+
+#lose > .attribute__text {
+  transform: rotate(calc(-3*var(--rot))); }
+
+#add {
+  transform: rotate(calc(4*var(--rot))); }
+
+#add > .attribute__text {
+  transform: rotate(calc(-4*var(--rot))); }
+
+#stay {
+  transform: rotate(calc(5*var(--rot)));
+  z-index: 7; }
+
+#stay > .attribute__text {
+  transform: rotate(calc(-5*var(--rot))); }
+
+.attribute__text--one {
+  animation: fade 2s infinite alternate-reverse;
+  animation-delay: 2s; }
+
+.attribute__text--two {
+  animation: fade 2s infinite alternate-reverse; }
+
+.attribute__text--button {
+  height: 100px;
+  width: 100px;
+  border: none;
+  background: var(--secBg);
+  border-radius: 50%;
+  position: relative;
+  z-index: 500;
+  box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.432);
+  cursor: pointer; }
+  .attribute__text--button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    z-index: -1;
+    width: 10px;
+    height: 10px;
+    background: var(--secBg);
+    transform: translate(-50%, -50%);
+    animation: pulse 1s infinite; }
+
+.attribute__description {
+  font-family: var(--mainText); }
+
+.mail {
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  flex-flow: column nowrap;
+  display: none;
+  z-index: 100;
+  background: white;
+  width: 95vw;
+  height: 95vh;
+  padding: 20px; }
+  .mail .mail__label {
+    color: var(--mainTextColor);
+    font-family: var(--titleFont);
+    font-size: 3rem; }
+  .mail .mail__input {
+    padding: 1rem 1rem;
+    color: var(--secondaryTextColor);
+    font-size: 1.5rem;
+    margin: 20px 0;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); }
+  .mail .mail__submit {
+    padding: 1rem 1rem;
+    background: var(--mainBg);
+    border: none;
+    color: var(--mainTextColor);
+    font-size: 2rem;
+    font-family: var(--heroFont);
+    border-radius: 3px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    transform: rotate(-5deg);
+    cursor: pointer;
+    transition: all .2s ease; }
+    .mail .mail__submit:hover {
+      background: var(--secBg); }
+  .mail .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer; }
+    .mail .close-button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 3px;
+      width: 80%;
+      background: lightgray;
+      transform: translate(-50%, -50%) rotate(45deg); }
+    .mail .close-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 3px;
+      width: 80%;
+      background: lightgray;
+      transform: translate(-50%, -50%) rotate(-45deg); }
+
+.mail--active {
+  display: flex; }

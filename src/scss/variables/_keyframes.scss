@@ -1,0 +1,21 @@
+@keyframes pulse {
+    from{
+        opacity: .9;
+        height: 0;
+        width: 0;
+    }
+    to{
+        opacity: 0;
+        height: 180px;
+        width: 180px;
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

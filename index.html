@@ -9,17 +9,33 @@
 <body>
     <h1 class='header'>smoothie delight</h1>
     <img class='header__image' src="./src/assets/smoothie_min.png" alt="smoothie image">
-    <h2 class="attribute">health & delicious</h2>
-    <h2 class="attribute">every smoothie is an experience. Make it count!</h2>
-    <h2 class="attribute">lose weight</h2>
-    <h2 class="attribute">add muscle</h2>
-    <h2 class="attribute">stay alert</h2>
+    <section class="attributes">
+        <div class="attribute" id='health'>
+            <h2 class="attribute__text">health & delicious</h2>
+        </div>
+        <div class="attribute" id='every'>
+            <h2 class="attribute__text attribute__text--one">every smoothie is an experience</h2>
+            <h2 class="attribute__text attribute__text--two">Make it count!</h2>
+        </div>
+        <div class="attribute" id='lose'>
+            <h2 class="attribute__text">lose weight</h2>
+        </div>
+        <div class="attribute" id='add'>
+            <h2 class="attribute__text">add muscle</h2>
+        </div>
+        <div class="attribute" id='stay'>
+            <button class="attribute__text attribute__text--button">
+                stay alert
+            </button>
+        </div>
+    </section>
     <form action="submit" class="mail">
         <label for="mail-input" class="mail__label">
             sign up for our mailing list to get updates
         </label>
         <input type="email" id="mail-input" class="mail__input" placeholder="what's your e-mail?" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
         <button class="mail__submit" type="submit">submit</button>
+        <button class="close-button"></button>
     </form>
 </body>
 </html>
